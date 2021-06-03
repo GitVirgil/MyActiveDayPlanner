@@ -1,4 +1,4 @@
-$(document).ready(function() {
+ $(document).ready(function() {
   
   // Test-boolean
   const test = false;
@@ -27,6 +27,14 @@ $(document).ready(function() {
   let storedPlans = JSON.parse(localStorage.getItem("storedPlans"));
 
   if (test) { console.log(storedPlans); } 
+// This code: obtained from https://github.com/gabepettus/DayPlanner/blob/master/index.html */
+  else {
+    // this should only occur on first time the app is loaded in the browser
+    // helpfully remind user that lunch is important
+    planTextArr = new Array(9);
+    planTextArr[4] = "Picnic lunch outside";
+  }
+
 
   // If plans were retrieved from localStorage, update the plan array to it
   if (storedPlans !== null) {
@@ -40,7 +48,8 @@ $(document).ready(function() {
   // Clear elements
   $plannerDiv.empty();
 
-  if (test) { console.log("current time",nowHour12); }
+  if (test) { 
+    console.log("current time",nowHour12); }
 
 
   // Calendar by row for fix set of hours
